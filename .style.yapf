@@ -1,0 +1,4 @@
+[style]
+indent_width = 4
+based_on_style = google
+DEDENT_CLOSING_BRACKETS = true
