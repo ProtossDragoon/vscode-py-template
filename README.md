@@ -16,3 +16,9 @@
         - 포매터는 google의 `yapf`를 사용합니다.
         - `yapf` 포매터의 기본 세팅에 `.style.yapf` 파일에 명시된 옵션을 오버라이딩해 코드를 포매팅합니다.
         - `.vscode` 설정을 사용하려면 `yapf` 익스텐션을 설치하세요.
+
+### 깃허브 액션 secrect 설정
+
+- `DISCORD_WEBHOOK_URL`
+    - 알림을 보내고 싶은 디스코드 채널의 웹훅 URL을 설정하세요.
+    - 관련 액션은 [notification.yml](.github/workflows/notification.yml) 입니다.
