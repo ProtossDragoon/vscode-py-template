@@ -24,3 +24,6 @@ format:
 test:
 	python3 -m unittest discover -s ./${PROJECT} -p "*_test.py" -v
 	python3 -m unittest discover -s ./${PROJECT} -p "test_*.py" -v
+
+publish:
+	python3 -m flit publish
