@@ -1,5 +1,4 @@
 {
-    "pylint.args": ["--rcfile=pylintrc"],
     "[python]": {
         "editor.formatOnSaveMode": "file",
         "editor.formatOnSave": true,
