@@ -22,8 +22,10 @@ format:
 	python3 -m yapf -ir .
 
 test:
-	python3 -m unittest discover -s ./${PROJECT} -p "*_test.py" -v
-	python3 -m unittest discover -s ./${PROJECT} -p "test_*.py" -v
+	python3 -m unittest discover -s ${PROJECT} -p "*_test.py" -v
+	python3 -m unittest discover -s tests -p "*_test.py" -v
+	python3 -m unittest discover -s ${PROJECT} -p "test_*.py" -v
+	python3 -m unittest discover -s tests -p "test_*.py" -v
 
 publish:
 	python3 -m flit publish
