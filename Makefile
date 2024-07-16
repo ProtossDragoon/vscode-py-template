@@ -1,19 +1,28 @@
 PROJECT = myproject
 
-all: install lint test format
+all: install-dev lint test format
 
 install:
 	python3 -m pip install --upgrade pip
-	python3 -m pip install --require-virtualenv -e .[dev]
+	flit install
 
-install-without-venv:
+install-dev:
 	python3 -m pip install --upgrade pip
-	python3 -m pip install -e .[dev]
+	# Install with flit
+	flit install --symlink --only-deps --deps all
+	# If you want to Use pip, use:
+	# python3 -m pip install --require-virtualenv -e .[dev]
+
+install-dev-without-venv:
+	python3 -m pip install --upgrade pip
+	# Install with flit
+	flit install --symlink --only-deps --deps all
+	# If you want to Use pip, use:
+	# python3 -m pip install -e .[dev]
 
 uninstall:
 	python3 -m pip install --upgrade pip
 	python3 -m pip uninstall ${PROJECT}
-	# NOTE: 이 패키지로 인해 설치된 의존성은 가상환경을 삭제하는 방식으로 제거되어야 합니다.
 
 lint:
 	python3 -m pylint --rcfile=pylintrc ./${PROJECT}
