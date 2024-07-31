@@ -27,9 +27,6 @@ uninstall:
 	python3 -m pip install --upgrade pip
 	python3 -m pip uninstall ${PROJECT}
 
-lint:
-	python3 -m pylint --rcfile=pylintrc ./${PROJECT}
-
 format:
 	python3 -m yapf -ir .
 
