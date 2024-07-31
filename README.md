@@ -21,11 +21,6 @@
 
 `Makefile`은 다음과 같은 기능들을 가지고 있습니다.
 
-### `make lint`
-
-- `.vscode` 설정을 사용하려면 `pylint` 익스텐션을 설치하세요.
-- 린터의 기본 세팅에 `pyproject.toml` 파일에 명시된 옵션을 오버라이딩해 코드를 린팅합니다.
-
 ### `make format`
 
 - 포매터는 google의 `yapf`를 사용합니다.
