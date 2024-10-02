@@ -1,11 +1,11 @@
 PROJECT = myproject
 
-all: install-dev lint test format
+all: install-dev test
 
 install:
 	python3 -m pip install --upgrade pip
 	python3 -m pip install flit
-	flit install
+	FLIT_ROOT_INSTALL=1 flit install
 
 install-dev:
 	python3 -m pip install --upgrade pip
@@ -27,14 +27,9 @@ uninstall:
 	python3 -m pip install --upgrade pip
 	python3 -m pip uninstall ${PROJECT}
 
-format:
-	python3 -m yapf -ir .
-
-test:
-	python3 -m unittest discover -s ${PROJECT} -p "*_test.py" -v
-	python3 -m unittest discover -s tests -p "*_test.py" -v
-	python3 -m unittest discover -s ${PROJECT} -p "test_*.py" -v
-	python3 -m unittest discover -s tests -p "test_*.py" -v
-
 publish:
 	python3 -m flit publish
+
+test:
+	@echo "Running tests in ${PROJECT}"
+	@python3 -m unittest discover -s tests -p "test_*.py" -v

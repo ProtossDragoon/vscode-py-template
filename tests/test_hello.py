@@ -2,7 +2,6 @@ import unittest
 
 
 class Testing(unittest.TestCase):
-
     def test_string(self):
         a = 'some'
         b = 'some'
