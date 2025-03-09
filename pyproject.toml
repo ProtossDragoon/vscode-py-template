@@ -45,10 +45,12 @@ extend-select = [ # Google 스타일을 기반으로 하는 설정
 ignore = [
     "ANN101",
     "ANN102",
+    "ANN204", # Checks that "special" methods, like __init__, __new__, and __call__, have return type annotations.
     "D100", # Missing module docstring
     "D103", # Missing module docstring
     "D105", # Missing docstring in magic method
     "D107", # Missing __init__ docstring
+    "D403", # missing-terminal-punctuation, First line should end with a period
     "S104"
 ]
 select = [ # Google 스타일 가이드를 따르는 규칙 선택
