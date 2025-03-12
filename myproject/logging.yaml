@@ -1,0 +1,56 @@
+version: 1
+disable_existing_loggers: false
+
+formatters:
+  colored:
+    (): myproject.log_utils.ColoredFormatter
+    format: '%(levelname)-8s | %(name)-20s | %(message)s'
+  timestamped:
+    format: '%(asctime)s | %(levelname)-8s | %(name)-20s | %(message)s'
+    datefmt: '%Y-%m-%d %H:%M:%S'
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: colored
+    stream: ext://sys.stdout
+  
+  file:
+    class: logging.handlers.RotatingFileHandler
+    level: INFO
+    formatter: timestamped
+    filename: logs/myproject.log
+    maxBytes: 10485760  # 10MB
+    backupCount: 5
+    encoding: utf8
+
+loggers:
+  myproject:
+    level: DEBUG
+    handlers: [console]
+    propagate: no
+  
+  myproject.domain:
+    level: DEBUG
+    handlers: [console]
+    propagate: no
+  
+  myproject.application:
+    level: DEBUG
+    handlers: [console]
+    propagate: no
+  
+  myproject.presentation:
+    level: DEBUG
+    handlers: [console]
+    propagate: no
+  
+  myproject.infrastructure:
+    level: DEBUG
+    handlers: [console]
+    propagate: no
+
+root:
+  level: WARNING
+  handlers: [console]
