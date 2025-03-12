@@ -9,18 +9,18 @@ install:
 
 install-dev:
 	python3 -m pip install --upgrade pip
-	# Install with flit
+	## option 1: Install with flit
 	python3 -m pip install flit
 	flit install --symlink --only-deps --deps all
-	# If you want to Use pip, use:
+	## option 2: If you want to Use pip, use:
 	# python3 -m pip install --require-virtualenv -e .[dev]
 
 install-dev-without-venv:
 	python3 -m pip install --upgrade pip
-	# Install with flit
+	## option 1: Install with flit
 	python3 -m pip install flit
 	flit install --symlink --only-deps --deps all
-	# If you want to Use pip, use:
+	## option 2: If you want to Use pip, use:
 	# python3 -m pip install -e .[dev]
 
 uninstall:
