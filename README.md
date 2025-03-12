@@ -16,3 +16,5 @@
 3. 디스코드를 사용하는 경우, 깃허브 액션 secret 변수 `DISCORD_WEBHOOK_URL` 을 지정합니다.
     - 알림을 보내고 싶은 디스코드 채널의 웹훅 URL을 값으로 등록합니다.
     - 관련 액션은 [ci-discord-noti.yml](.github/workflows/ci-discord-noti.yml) 입니다.
+4. 로거를 설정합니다.
+    - `myproject/logging.yaml`의 `myproject`, `myproject/log_utils.py`의 `myproject`을 찾아 대치합니다.
