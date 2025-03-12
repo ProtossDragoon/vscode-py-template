@@ -27,7 +27,7 @@ uninstall:
 	python3 -m pip install --upgrade pip
 	python3 -m pip uninstall ${PROJECT}
 
-publish:
+publish-to-pypi:
 	python3 -m flit publish
 
 test:
