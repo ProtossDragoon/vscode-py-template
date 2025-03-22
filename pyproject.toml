@@ -7,7 +7,7 @@ name = "myproject"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "Janghoo Lee", email = "dlwkdgn1@naver.com"}
+    {name = "Janghoo LEE", email = "zetteljang@gmail.com"}
 ]
 readme = "README.md"
 classifiers = [
