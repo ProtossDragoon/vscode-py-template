@@ -1,5 +1,8 @@
 import logging
+import logging.config
 from pathlib import Path
+
+import yaml
 
 
 class Colors:
@@ -41,40 +44,40 @@ class ColoredFormatter(logging.Formatter):
         'myproject.infrastructure': Colors.YELLOW,
         'myproject': Colors.WHITE,
     }
-    
+
     def format(self, record):
         # Save the original
         original_name = record.name
         original_levelname = record.levelname
-        
+
         # Apply colors to the logger name
-        for module, color in self.MODULE_COLORS.items():
+        for module, color in self.ABSTRACTION_LEVEL_COLORS.items():
             if record.name.startswith(module):
-                record.name = f"{color}{record.name}{Colors.RESET}"
+                record.name = f'{color}{record.name}{Colors.RESET}'
                 break
-        
+
         # Apply colors to the level name
-        level_color = self.LEVEL_COLORS.get(record.levelname, '')
-        record.levelname = f"{level_color}{record.levelname}{Colors.RESET}"
-        
+        level_color = self.LOGGER_LEVEL_COLORS.get(record.levelname, '')
+        record.levelname = f'{level_color}{record.levelname}{Colors.RESET}'
+
         # Format the message
         result = super().format(record)
-        
+
         # Restore the original values
         record.name = original_name
         record.levelname = original_levelname
-        
+
         return result
 
 
 def setup_logging():
     # Make sure logs directory exists
-    logs_dir = Path("logs")
+    logs_dir = Path('logs')
     logs_dir.mkdir(exist_ok=True)
-    
-    log_config_path = Path(__file__).parent / "logging.yaml"
+
+    log_config_path = Path(__file__).parent / 'logging.yaml'
     if log_config_path.exists():
-        with open(log_config_path, "r") as f:
+        with open(log_config_path) as f:
             config = yaml.safe_load(f.read())
         logging.config.dictConfig(config)
     else:
